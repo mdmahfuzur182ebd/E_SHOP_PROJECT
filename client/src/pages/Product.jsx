@@ -1,4 +1,7 @@
 import { Add, Remove } from "@material-ui/icons";
+import { useEffect } from "react";
+import { useState } from "react";
+import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
@@ -115,6 +118,24 @@ const Button = styled.button`
 `;
 
 const Product = () => {
+    const location = useLocation();
+    const id = location.pathname.split("/")[2];
+   
+    const [ product, setproduct] = useState({});
+
+    useEffect(() => {
+      const getProduct = async() => {
+
+        try {
+          
+        } catch (err) {
+          
+        }
+      }
+
+    }, [id]);
+
+
   return (
     <Container>
       <Announcement />
