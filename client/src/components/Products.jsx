@@ -1,7 +1,10 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import {popularProducts} from "../data";
 import Product from './Product';
+import axios from 'axios';
+
 
 
 const Container = styled.div`
@@ -12,8 +15,23 @@ const Container = styled.div`
 `;
 
 
-const Products = ({cat, filter, sort}) => {
-  console.log(cat, filter, sort);
+const Products = ({cat, filters, sort}) => {
+
+  const [products, setProducts] = useState([]);
+  const [filterProduct, setFilterProduct] = useState([]);
+
+  useEffect(() => {
+    const getProducts = async () => {
+      try {
+        const res = await axios.get("http://localhost:5000/api/products?category=coat");
+        console.log(res);
+      } catch (err) {
+        
+      }
+    }; 
+    getProducts()
+  }, [cat]);
+
   return (
     <Container>
          {popularProducts.map((item) => (

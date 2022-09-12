@@ -51,10 +51,10 @@ const ProductList = () => {
     const [sort , setSort ] = useState("newest");
 
     const handleFilters = (e) => {
-        const value = e.taget.value;
+        const value = e.target.value;
         setFilters({
             ...filters,
-            [e.taget.name] : value
+            [e.target.name] : value,
         });
     };
     
